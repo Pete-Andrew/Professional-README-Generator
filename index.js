@@ -67,6 +67,15 @@ ${response.projectTitle}
 ${response.description}
 ## Table of Contents: 
 ${response.ToC}
+
+[Description](#Description)
+[Installation](#Installation)
+[Usage](#Usage)
+[liscence](#Liscence)
+[Contributing](#Contributing)
+[Tests](#Tests)
+[Questions](#Questions)
+
 ## Installation: 
 ${response.installation}
 ## Usage: 
@@ -85,7 +94,7 @@ If you would like to contact me please use the following email address:
 Email: ${response.questionsEmail}
 `;
 
-        fs.writeFile('README.txt', usersInfo, (err) =>
+        fs.writeFile('README.md', usersInfo, (err) =>
             err ? console.error(err) : console.log('Thank you for entering data!')
         )
     })
@@ -104,3 +113,4 @@ Email: ${response.questionsEmail}
 // When a user clicks on the links in the Table of Contents, they are taken to the corresponding section of the README.
 
 //homework overview: https://courses.bootcampspot.com/courses/3018/assignments/44672?module_item_id=831886
+
