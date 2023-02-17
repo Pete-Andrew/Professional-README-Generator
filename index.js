@@ -6,17 +6,22 @@ inquirer
         {
             type: 'input',
             message: 'Project Title',
-            name: 'prodjectTitle'
+            name: 'projectTitle'
+        },
+        {
+            type: 'input',
+            message: 'Please enter your GitHub user name and link to GitHub profile',
+            name: 'questionsGithub'
+        },
+        {
+            type: 'input',
+            message: 'Please enter your email address',
+            name: 'questionsEmail'
         },
         {
             type: 'input',
             message: 'Description',
             name: 'description'
-        },
-        {
-            type: 'input',
-            message: 'Table of Contents',
-            name: 'ToC'
         },
         {
             type: 'input',
@@ -30,8 +35,8 @@ inquirer
         },
         {
             type: 'list',
-            message: 'Liscence',
-            name: 'liscence',
+            message: 'Licence',
+            name: 'licence',
             choices: ['MIT', 'Creative Commons Attribution 4.0', 'Apache license 2.0', 'Do What The F*ck You Want To Public License'],
         },
         {
@@ -44,19 +49,9 @@ inquirer
             message: 'Tests',
             name: 'tests'
         },
-        {
-            type: 'input',
-            message: 'Please enter your GitHub user name and link to GitHub profile',
-            name: 'questionsGithub'
-        },
-        {
-            type: 'input',
-            message: 'Please enter your email address',
-            name: 'questionsEmail'
-        },
     ])
+    
     .then((response) => {
-
         console.log(response.usersName)
 
 const usersInfo = 
@@ -66,38 +61,41 @@ ${response.projectTitle}
 ## Description: 
 ${response.description}
 ## Table of Contents: 
-${response.ToC}
 
-[Description](#Description)
-[Installation](#Installation)
-[Usage](#Usage)
-[liscence](#Liscence)
-[Contributing](#Contributing)
-[Tests](#Tests)
-[Questions](#Questions)
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [licence](#Licence)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
 
 ## Installation: 
 ${response.installation}
 ## Usage: 
 ${response.usage}
-## Liscence: 
-${response.liscence}
+## Licence: 
+This product is licenced under the ${response.licence} licence.
 ## Contributing: 
 ${response.contributing}
 ## Tests: 
 ${response.tests}
 ## Questions: 
+If you would like to learn more about this project or my programming please see the following GitHub:  \n
+${"https://github.com/" + response.questionsGithub} \n
 
-If you would like to learn more about this project or my programming please see the following: 
-GitHub: ${response.questionsGithub} 
-If you would like to contact me please use the following email address:
-Email: ${response.questionsEmail}
+If you would like to contact me please use the following email address: \n
+${response.questionsEmail} \n
 `;
 
-        fs.writeFile('README.md', usersInfo, (err) =>
-            err ? console.error(err) : console.log('Thank you for entering data!')
+fs.writeFile('README.md', usersInfo, (err) =>
+            err ? console.error(err) : console.log('Generating README...')
         )
     })
+
+
+// `![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)`
+
 
 
 // When a user enters the project title, it's displayed as the title of the README.
@@ -116,3 +114,4 @@ Email: ${response.questionsEmail}
 
 //https://github.com/Pete-Andrew
 
+//this product is liscenced under the .... liscence 
