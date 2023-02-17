@@ -1,7 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-inquirer
+const licenseImages = {
+
+    "MIT" : '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
+    "IBM" : '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)',
+    "Apache 2.0" : '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
+    "Mozilla 2.0" : '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)',
+    "The Artistic 2.0" : '[![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic_2.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)',
+    "The Do What the F*ck You Want to Public" : '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)'
+}
+
+//prompt brings up the questions in the terminal
+inquirer 
     .prompt([
         {
             type: 'input',
@@ -37,7 +48,8 @@ inquirer
             type: 'list',
             message: 'Licence',
             name: 'licence',
-            choices: ['MIT', 'Creative Commons Attribution 4.0', 'Apache license 2.0', 'Do What The F*ck You Want To Public License'],
+            // choices: ['MIT', 'Creative Commons Attribution 4.0', 'Apache license 2.0', 'Do What The F*ck You Want To Public License'],
+            choices: Object.keys(licenseImages),
         },
         {
             type: 'input',
@@ -56,8 +68,7 @@ inquirer
 
 const usersInfo = 
 
-`# Project Title: 
-${response.projectTitle}
+`# ${response.projectTitle}
 ## Description: 
 ${response.description}
 ## Table of Contents: 
@@ -88,14 +99,12 @@ If you would like to contact me please use the following email address: \n
 ${response.questionsEmail} \n
 `;
 
+const licenceBadges = 
+
 fs.writeFile('README.md', usersInfo, (err) =>
             err ? console.error(err) : console.log('Generating README...')
         )
     })
-
-
-// `![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)`
-
 
 
 // When a user enters the project title, it's displayed as the title of the README.
@@ -111,7 +120,3 @@ fs.writeFile('README.md', usersInfo, (err) =>
 // When a user clicks on the links in the Table of Contents, they are taken to the corresponding section of the README.
 
 //homework overview: https://courses.bootcampspot.com/courses/3018/assignments/44672?module_item_id=831886
-
-//https://github.com/Pete-Andrew
-
-//this product is liscenced under the .... liscence 
