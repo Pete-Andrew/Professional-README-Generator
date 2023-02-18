@@ -7,7 +7,6 @@ const licenseImages = {
     "IBM" : '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)',
     "Apache 2.0" : '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
     "Mozilla 2.0" : '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)',
-    "The Artistic 2.0" : '[![License: Artistic-2.0](https://img.shields.io/badge/License-Artistic_2.0-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)',
     "The Do What the F*ck You Want to Public" : '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)'
 }
 
@@ -21,7 +20,7 @@ inquirer
         },
         {
             type: 'input',
-            message: 'Please enter your GitHub user name and link to GitHub profile',
+            message: 'Please enter your GitHub user name (this is case sensitive)',
             name: 'questionsGithub'
         },
         {
@@ -49,7 +48,10 @@ inquirer
             message: 'Licence',
             name: 'licence',
             // choices: ['MIT', 'Creative Commons Attribution 4.0', 'Apache license 2.0', 'Do What The F*ck You Want To Public License'],
-            choices: Object.keys(licenseImages),
+            // using Object.Keys returns the first half of all the key value pairs. Object.value will return the values (e.g. the second half of the key value pairs)
+            // choices: Object.keys(licenseImages) creates a list of the keys from the licenceImage variable 
+            choices: Object.keys(licenseImages), 
+            
         },
         {
             type: 'input',
@@ -64,13 +66,47 @@ inquirer
     ])
     
     .then((response) => {
-        console.log(response.usersName)
+        console.log("Thanks for entering your data")
+        
+const licence = `${response.licence}`
+console.log("The licence selected: " + licence);
+
+// function logo () {
+    if (`${response.licence}` === 'MIT') {
+        let licenceLogo = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';            
+        console.log(licenceLogo);
+    }
+    else if (`${response.licence}` === 'IBM') {
+        let licenceLogo = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)';            
+        console.log(licenceLogo);
+    } 
+    else if (`${response.licence}` === 'Apache 2.0') {
+        let licenceLogo = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';  
+        console.log(licenceLogo);
+    }
+    else if (`${response.licence}` === 'Mozilla 2.0') {
+        let licenceLogo = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';            
+        console.log(licenceLogo);
+    } 
+    else if (`${response.licence}` === 'The Do What the F*ck You Want to Public') {
+        let licenceLogo = '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';  
+        console.log(licenceLogo);
+    };
+            
+    
+// }
+// logo();
 
 const usersInfo = 
 
 `# ${response.projectTitle}
 ## Description: 
 ${response.description}
+
+
+
+${response.licence}
+
 ## Table of Contents: 
 
 * [Description](#Description)
@@ -99,12 +135,11 @@ If you would like to contact me please use the following email address: \n
 ${response.questionsEmail} \n
 `;
 
-const licenceBadges = 
-
 fs.writeFile('README.md', usersInfo, (err) =>
             err ? console.error(err) : console.log('Generating README...')
         )
     })
+
 
 
 // When a user enters the project title, it's displayed as the title of the README.
@@ -120,3 +155,4 @@ fs.writeFile('README.md', usersInfo, (err) =>
 // When a user clicks on the links in the Table of Contents, they are taken to the corresponding section of the README.
 
 //homework overview: https://courses.bootcampspot.com/courses/3018/assignments/44672?module_item_id=831886
+//links to makrdown badges: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba 
