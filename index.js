@@ -50,7 +50,8 @@ inquirer
             // choices: ['MIT', 'Creative Commons Attribution 4.0', 'Apache license 2.0', 'Do What The F*ck You Want To Public License'],
             // using Object.Keys returns the first half of all the key value pairs. Object.value will return the values (e.g. the second half of the key value pairs)
             // choices: Object.keys(licenseImages) creates a list of the keys from the licenceImage variable 
-            choices: Object.keys(licenseImages), 
+            //choices: Object.values(licenseImages),
+            choices: ["MIT", "Apache 2.0", "IBM", "Mozilla 2.0", "The Do What the F*ck You Want to Public"] 
             
         },
         {
@@ -71,61 +72,61 @@ inquirer
 const licence = `${response.licence}`
 console.log("The licence selected: " + licence);
 
-// function logo () {
-    if (`${response.licence}` === 'MIT') {
-        let licenceLogo = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';            
-        console.log(licenceLogo);
+function returnLiscenceLogo (licence) {
+   
+    if (licence === 'MIT') {
+        return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';            
+         
     }
-    else if (`${response.licence}` === 'IBM') {
-        let licenceLogo = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)';            
-        console.log(licenceLogo);
+    else if (licence === 'IBM') {
+        return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)';            
+       
     } 
-    else if (`${response.licence}` === 'Apache 2.0') {
-        let licenceLogo = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';  
-        console.log(licenceLogo);
+    else if (licence === 'Apache 2.0') {
+        return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';    
+        
     }
-    else if (`${response.licence}` === 'Mozilla 2.0') {
-        let licenceLogo = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';            
-        console.log(licenceLogo);
+    else if (licence === 'Mozilla 2.0') {
+        return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';               
+      
     } 
-    else if (`${response.licence}` === 'The Do What the F*ck You Want to Public') {
-        let licenceLogo = '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';  
-        console.log(licenceLogo);
-    };
-            
-    
-// }
-// logo();
+    else if (licence === 'The Do What the F*ck You Want to Public') {
+        return '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)';  
+               
+    }; 
+         
+}
 
+//#links need to be entirely lower case or they don't work! 
 const usersInfo = 
 
 `# ${response.projectTitle}
 ## Description: 
 ${response.description}
 
-
-
-${response.licence}
-
+${returnLiscenceLogo(response.licence)}
 ## Table of Contents: 
 
-* [Description](#Description)
-* [Installation](#Installation)
-* [Usage](#Usage)
-* [licence](#Licence)
-* [Contributing](#Contributing)
-* [Tests](#Tests)
-* [Questions](#Questions)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [licence](#licence)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ## Installation: 
+
 ${response.installation}
 ## Usage: 
+
 ${response.usage}
 ## Licence: 
 This product is licenced under the ${response.licence} licence.
 ## Contributing: 
 ${response.contributing}
 ## Tests: 
+
 ${response.tests}
 ## Questions: 
 If you would like to learn more about this project or my programming please see the following GitHub:  \n
