@@ -1,8 +1,9 @@
-# hello
-## Description: 
-e
+# Professional README Generator
 
-[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+## Description: 
+a project to produce a readme generator using node.js! 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents: 
 
 * [Description](#description)
@@ -15,24 +16,24 @@ e
 
 ## Installation: 
 
-e
+NA
 ## Usage: 
 
-e
+NA
 ## Licence: 
-This product is licenced under the The Do What the F*ck You Want to Public licence.
+This product is licenced under the MIT licence.
 ## Contributing: 
-e
+ok
 ## Tests: 
 
-e
+NA
 ## Questions: 
 If you would like to learn more about this project or my programming please see the following GitHub:  
 
-https://github.com/e 
+https://github.com/Pete-Andrew 
 
 
 If you would like to contact me please use the following email address: 
 
-e 
+peter.a.andrew@gmail.com 
 
