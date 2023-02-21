@@ -93,7 +93,7 @@ inquirer
     }
 
     //#links need to be entirely lower case or they don't work!
-    // uses `tick functions` to return the information as a string with ${...} calling in values as strings. 
+    // uses `ticks` to return the information as a string with ${...} calling in values as strings. 
 const usersInfo = `# ${response.projectTitle}
 
 ## Description: 

@@ -1,7 +1,7 @@
 # Professional README Generator
 
 ## Description: 
-a project to produce a readme generator using node.js! 
+This is a read me generator created to develope skills in using node js 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents: 
@@ -16,17 +16,17 @@ a project to produce a readme generator using node.js!
 
 ## Installation: 
 
-NA
+To install necessary dependencies, run the following command: npm install
 ## Usage: 
 
-NA
+You can use this applicaiton by running `node index.js`.
 ## Licence: 
 This product is licenced under the MIT licence.
 ## Contributing: 
-ok
+n/a
 ## Tests: 
 
-NA
+To run tests, run the following command: npm test
 ## Questions: 
 If you would like to learn more about this project or my programming please see the following GitHub:  
 
